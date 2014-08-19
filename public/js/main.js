@@ -13,7 +13,8 @@ $(function() {
     "Intermache",
     "Lidl",
     "Pingo Doce",
-    "Modelo"
+    "Modelo",
+    "Outro"
   ];
   
   var positions = [
