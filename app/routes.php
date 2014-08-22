@@ -16,10 +16,9 @@ Route::get('/', function()
 	return View::make('pages.home');
 });
 
-Route::get('/procurar', function()
-{
-	return View::make('pages.search');
-});
+Route::get('/procurar', 'SearchController@showResults');
+
+Route::get('/s/{by}/{param}', 'SearchController@getResults');
 
 Route::get('/submeter', function()
 {

@@ -14,11 +14,12 @@
                                 <span id="search_concept">Pesquisar por</span> <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                              <li><a href="#contains">Posição</a></li>
-                              <li><a href="#its_equal">Empresa</a></li>
-                              <li><a href="#greather_than">Salário maior do que</a></li>
-                              <li><a href="#greather_than">Salário menor do que</a></li>
-                              <li class="divider"></li>
+                                <li><a href="#district">Distrito</a></li>
+                                <li><a href="#position">Posição</a></li>
+                                <li><a href="#company">Empresa</a></li>
+                                <li><a href="#greather_than">Salário maior do que</a></li>
+                                <li><a href="#greather_than">Salário menor do que</a></li>
+                                <li class="divider"></li>
                             </ul>
                         </div>
                         <input type="hidden" name="search_param" value="all" id="search_param">         
@@ -28,38 +29,11 @@
                         </span>
                     </div>
                 </div>
+            </div>            
+            <div id="ajax-results">
+                
             </div>
-            
-            <table class="table search-results table-hover">
-            <thead>
-                <tr>
-                    <th>Empresa</th>
-                    <th>Posição</th>
-                    <th>Salário Mensal</th>
-                    <th>Género</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Intermarché</td>
-                    <td>Caixa</td>
-                    <td>525€</td>
-                    <td>Feminino</td>
-                </tr>
-                <tr>
-                    <td>Lidl</td>
-                    <td>Caixa</td>
-                    <td>550€</td>
-                    <td>Feminino</td>
-                </tr>
-                <tr>
-                    <td>Lidl</td>
-                    <td>Armazém</td>
-                    <td>625€</td>
-                    <td>Masculino</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="spinner"></div>
         </div>   
         @include('includes.footer')
   </body>

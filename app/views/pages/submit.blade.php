@@ -11,7 +11,7 @@
                       <label for="company" class="col-sm-2 control-label">Empresa</label>
                       <div class="col-sm-10">
                         <input id="company" type="company" class="form-control" placeholder="Empresa">
-                        <p class="help-block">Comece a escrever o nome da empresa e seleccione um dos resultados, caso não disp i sira</p>
+                        <p class="help-block">Comece a escrever o nome da empresa e seleccione um dos resultados.</p>
                       </div>
                     </div>
                     <div class="form-group">
