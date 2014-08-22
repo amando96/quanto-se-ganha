@@ -21,8 +21,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
-        
+	protected $hidden = array('password', 'remember_token');        
         public static function search($by, $param){
             switch($by){
                 case 'district':
@@ -59,8 +58,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
                         ->join('positions', 'salary_position', '=', 'position_id')
                         ->select('*')
                         ->where('company_name', 'LIKE', '%'.$param.'%')
-                        ->or('position_name', 'LIKE', '%'.$param.'%')
-                        ->or('district_name', 'LIKE', '%'.$param.'%')
+                        ->orWhere('position_name', 'LIKE', '%'.$param.'%')
+                        ->orWhere('district_name', 'LIKE', '%'.$param.'%')
+                        ->get();
+                    break;
+                case 'recent':
+                    $results = DB::table('salaries')
+                        ->join('districts', 'salary_district', '=', 'district_id')
+                        ->join('companies', 'salary_company', '=', 'company_id')
+                        ->join('positions', 'salary_position', '=', 'position_id')
+                        ->select('*')
+                        ->orderBy('salary_id', 'desc')
                         ->get();
                     break;
             }

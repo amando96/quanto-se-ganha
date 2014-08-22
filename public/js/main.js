@@ -65,4 +65,9 @@ $(document).ready(function(e){
             $(".spinner").hide();
         });
     });
+    $("#ajax-results").load('s/recent/all',
+    function(){
+        $("#ajax-results").show();
+        $(".spinner").hide();
+    });
 });
