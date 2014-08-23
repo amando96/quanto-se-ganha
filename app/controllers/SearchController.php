@@ -14,5 +14,25 @@ class SearchController extends BaseController {
                 App::abort(404);
             }
         }
+        
+        public function autocomplete($data){
+            if(Request::ajax()){
+                switch($data){
+                    case 'companies':
+                        $results = User::autocomplete('companies');
+                        break;
+                    case 'districts':
+                        $results = User::autocomplete('districts');
+                        break;
+                    default: /* positions */
+                        $results = User::autocomplete('positions');
+                        break;
+                }
+                
+            } else {
+                App::abort(404);
+            }
+            return $results;
+        }
 
 }

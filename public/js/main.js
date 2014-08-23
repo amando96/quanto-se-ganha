@@ -1,23 +1,4 @@
-$(document).ready(function(e){
-    var companies = [
-        "Intermache",
-        "Lidl",
-        "Pingo Doce",
-        "Modelo",
-        "Outro"
-    ];
-    var positions = [
-        "Caixa",
-        "Armazém",
-        "Contabilidade",
-        "Limpeza"
-    ];    
-    var districts = [
-        "Aveiro",
-        "Faro",
-        "Beja"
-    ];
-  
+$(document).ready(function(e){  
     $('.search-panel .dropdown-menu').find('a').click(function(e) {
         e.preventDefault();
         var param = $(this).attr("href").replace("#","");
@@ -27,29 +8,29 @@ $(document).ready(function(e){
         switch(param){
             case 'position':
                 $( "#search" ).autocomplete({
-                    source: positions
+                    serviceUrl: 'autocomplete/positions'
                 });
                 break;
             case 'company':
                 $( "#search" ).autocomplete({
-                    source: companies
+                    serviceUrl: 'autocomplete/companies'
                 });
                 break;
             case 'district':
                 $( "#search" ).autocomplete({
-                    source: districts
+                    serviceUrl: 'autocomplete/districts'
                 });
                 break;
         }
     });
     
-    $( "#company" ).autocomplete({
-        source: companies
+   /* $( "#company" ).autocomplete({
+        serviceUrl: 'autocomplete/companies'
     });
   
     $( "#position" ).autocomplete({
-        source: positions
-    });
+        serviceUrl: 'autocomplete/positions'
+    });*/
     
     $("#search").on('keyup', function(){
         $(".spinner").show();
@@ -69,5 +50,18 @@ $(document).ready(function(e){
     function(){
         $("#ajax-results").show();
         $(".spinner").hide();
+    });
+    
+    $("form").submit(function(e){
+        err = false;
+        $(".required").each(function(){
+            if($(this).val() == ''){
+                err = true;
+            }
+        });
+        if(err === true){
+            $(".validate-response").html(' <div id="submit-error" class="alert alert-danger" role="alert"><strong>Erro!</strong> Há campos obrigatórios não preenchidos, por favor preencha e volte a submeter.</div>');
+            e.preventDefault();
+        }
     });
 });

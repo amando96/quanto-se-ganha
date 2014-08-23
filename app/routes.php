@@ -17,15 +17,12 @@ Route::get('/', function()
 });
 
 Route::get('/procurar', 'SearchController@showResults');
-
 Route::get('/s/{by}/{param}', 'SearchController@getResults');
-
-Route::get('/submeter', function()
-{
-	return View::make('pages.submit');
-});
-
+Route::get('/submeter', 'SubmitController@getSubmitData');
 Route::get('/privacidade', function()
 {
 	return View::make('pages.privacy');
 });
+
+Route::get('/autocomplete/{what}', 'SearchController@autocomplete');
+Route::post('/insert/salary', 'SubmitController@insertSalary');

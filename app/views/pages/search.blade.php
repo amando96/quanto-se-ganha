@@ -17,8 +17,8 @@
                                 <li><a href="#district">Distrito</a></li>
                                 <li><a href="#position">Posição</a></li>
                                 <li><a href="#company">Empresa</a></li>
-                                <li><a href="#greather_than">Salário maior do que</a></li>
-                                <li><a href="#greather_than">Salário menor do que</a></li>
+                               <!-- <li><a href="#greather_than">Salário maior do que</a></li>
+                                <li><a href="#greather_than">Salário menor do que</a></li>-->
                                 <li class="divider"></li>
                             </ul>
                         </div>
